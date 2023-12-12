@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LifeCycleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/test1', [TestController::class, 'test1']);
 Route::get('/test2', [TestController::class, 'test2']);
+Route::get('/service-container', [LifeCycleController::class, 'showService']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
