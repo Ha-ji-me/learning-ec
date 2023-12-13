@@ -24,11 +24,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('dashboard');
 
 Route::get('/test1', [TestController::class, 'test1']);
