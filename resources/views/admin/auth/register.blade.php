@@ -1,4 +1,5 @@
 <x-guest-layout>
+    管理者用
     <form method="POST" action="{{ route('admin.register') }}">
         @csrf
 

@@ -9,7 +9,15 @@
         </p>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
+    <form id="send-verification" method="post"
+        action="{{ @if(auth('admin')->user())
+            route('admin.verification.send')
+        @elseif(auth('owner')->user())
+            route('owner.verification.send')
+        @else
+            route('user.verification.send')
+        @endif }}">
+
         @csrf
     </form>
 

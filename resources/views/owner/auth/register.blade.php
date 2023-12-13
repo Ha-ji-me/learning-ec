@@ -1,4 +1,5 @@
 <x-guest-layout>
+    オーナー用
     <form method="POST" action="{{ route('owner.register') }}">
         @csrf
 
