@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\OwnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,12 +28,14 @@ Route::get('/', function () {
     return view('admin.welcome');
 });
 
+Route::resource('owners', OwnerController::class)->middleware('auth:admin');
+
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('dashboard');
 
-Route::get('/test1', [TestController::class, 'test1']);
-Route::get('/test2', [TestController::class, 'test2']);
+// Route::get('/test1', [TestController::class, 'test1']);
+// Route::get('/test2', [TestController::class, 'test2']);
 
 Route::middleware('auth:admin')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

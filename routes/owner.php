@@ -31,8 +31,8 @@ Route::get('/dashboard', function () {
     return view('owner.dashboard');
 })->middleware(['auth:owners', 'verified'])->name('dashboard');
 
-Route::get('/test1', [TestController::class, 'test1']);
-Route::get('/test2', [TestController::class, 'test2']);
+// Route::get('/test1', [TestController::class, 'test1']);
+// Route::get('/test2', [TestController::class, 'test2']);
 
 Route::middleware('auth:owners')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
