@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Owner;
 
 class OwnerController extends Controller
 {
-    public function __construct()
+    private $owner;
+
+    public function __construct(Owner $owner)
     {
+        $this->owner = $owner;
         $this->middleware('auth:admin');
     }
 
@@ -17,7 +21,8 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        dd('o-na-');
+        $owners = $this->owner->getAll();
+        dd($owners);
     }
 
     /**
