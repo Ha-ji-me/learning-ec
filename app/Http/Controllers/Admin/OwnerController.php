@@ -22,7 +22,7 @@ class OwnerController extends Controller
     public function index()
     {
         $owners = $this->owner->getAll();
-        dd($owners);
+        return view('admin.owners.index', compact('owners'));
     }
 
     /**

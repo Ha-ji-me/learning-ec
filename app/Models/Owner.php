@@ -45,7 +45,7 @@ class Owner extends Authenticatable
 
     public function getAll()
     {
-        $owners = $this->get();
+        return $owners = $this->select('name', 'email', 'created_at')->get();
         // dd($this->first()->created_at->diffForHumans());
     }
 }
