@@ -15,4 +15,9 @@ class TestController extends Controller
     {
         return view('tests.component_2');
     }
+
+    public function test001()
+    {
+        return view('tests.route');
+    }
 }
